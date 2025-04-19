@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 message: "If you use these learning materials, please cite it as below."
 authors:
-  - family-names: Surname
-    given-names: First_Name
+  - family-names: Doe
+    given-names: John
     orcid: https://orcid.org/1234-5678-9101-1121
     affiliation: Organization
 title: "Training Name"
@@ -13,7 +13,7 @@ date-released: "1970-01-01"
 license: CC-BY-4.0
 license-url: "https://creativecommons.org/licenses/by/4.0/legalcode.txt"
 keywords:
- - "thefirstkeyword"
- - "thesecondkeyword"
- - "a third keyword"
-repository: "https://github.com/citation-file-format/my-research-software"
+ - "tag first"
+ - "tag second"
+ - "tag third"
+repository: "https://github.com/FAIR-by-Design-Demo/wftest"
