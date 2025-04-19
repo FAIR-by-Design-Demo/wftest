@@ -50,15 +50,15 @@ citation:
   title: "Training Name"
   abstract: "Training description"
   version: 1.0.0
-  doi: 10.5070/zenodo.123
-  date-released: "1970"
+  doi: 10.5281/zenodo.199690
+  date-released: "2025"
   license: CC-BY-4.0
   license-url: "https://creativecommons.org/licenses/by/4.0/legalcode.txt"
   type: generic
   keywords:
-    - "tag first"
-    - "tag second"
-    - "tag third"
+    - tag first
+    - tag second
+    - tag third
   repository: "https://github.com/FAIR-by-Design-Demo/wftest"
 signposting_linkset: https://raw.githubusercontent.com/FAIR-by-Design-Demo/wftest/main/linkset.json # do not update manually
 signposting_default_profile: '' # update with an URL towards the profile used for the Markdown pages (optional)
