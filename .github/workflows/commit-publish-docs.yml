@@ -13,7 +13,6 @@ on:
       - "CITATION.cff"
 
 jobs:
-
   determine-exec-order:
     name: Determine execution order
     runs-on: ubuntu-22.04
