@@ -31,13 +31,13 @@ jobs:
           citations:
             - 'CITATION.cff'
     # run only if 'CITATION.cff' file was changed
-    - name: workflow tests
+    - name: citation changed
       if: steps.filter.outputs.citations == 'true'
       run: echo "CITATION.cff changed"
 
-    # run only if not 'workflows' files were changed
-    - name: not workflow tests
-      if: steps.filter.outputs.workflows != 'true'
+    # run only if not 'CITATION.cff' files were changed
+    - name: citation not changed
+      if: steps.filter.outputs.citations != 'true'
       run: echo "CITATION.cff not changed"
 
   cffconvert:
@@ -47,6 +47,7 @@ jobs:
 
   signposting:
     uses: ./.github/workflows/signposting.yml
+    needs: cffconvert
 
   deploy_docs:
     name: Deploy docs
