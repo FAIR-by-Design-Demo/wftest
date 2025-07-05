@@ -43,7 +43,7 @@ jobs:
   cffconvert:
     uses: ./.github/workflows/commit-cffconvert.yml
     needs: determine-exec-order
-    if: needs.determine-exec-order.outputs.output1 == 'true'
+    if: ${{ needs.determine-exec-order.outputs.citations == 'true' }}
 
   signposting:
     uses: ./.github/workflows/signposting.yml
