@@ -47,9 +47,11 @@ jobs:
 
   signposting:
     uses: ./.github/workflows/signposting.yml
-    needs: 
-      - determine-exec-order
-      - cffconvert
+    needs: cffconvert
+    if: |
+      always() &&
+      !contains(needs.*.result, 'failure') &&
+      !contains(needs.*.result, 'cancelled')
 
   deploy_docs:
     name: Deploy docs
