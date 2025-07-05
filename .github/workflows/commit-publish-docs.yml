@@ -10,8 +10,41 @@ on:
       - "mkdocs.yml"
       - "requirements.txt"
       - "RELEASE_NOTES.md"
+      - "CITATION.cff"
 
 jobs:
+
+  determine-exec-order:
+    name: Determine execution order
+    runs-on: ubuntu-22.04
+    outputs:
+      output1: ${{ steps.filter.outputs.workflows }}
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        ref: main
+    - uses: dorny/paths-filter@v3
+      id: filter
+      with:
+        filters: |
+          citations:
+            - 'CITATION.cff'
+    # run only if 'CITATION.cff' file was changed
+    - name: workflow tests
+      if: steps.filter.outputs.citations == 'true'
+      run: echo "CITATION.cff changed"
+
+    # run only if not 'workflows' files were changed
+    - name: not workflow tests
+      if: steps.filter.outputs.workflows != 'true'
+      run: echo "CITATION.cff not changed"
+
+  cffconvert:
+    uses: ./.github/workflows/commit-cffconvert.yml
+    needs: determine-exec-order
+    if: needs.determine-exec-order.outputs.output1 == 'true'
+
   signposting:
     uses: ./.github/workflows/signposting.yml
 
