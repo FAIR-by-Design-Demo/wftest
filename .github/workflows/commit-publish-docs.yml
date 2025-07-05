@@ -47,7 +47,9 @@ jobs:
 
   signposting:
     uses: ./.github/workflows/signposting.yml
-    needs: cffconvert
+    needs: 
+      - determine-exec-order
+      - cffconvert
 
   deploy_docs:
     name: Deploy docs
