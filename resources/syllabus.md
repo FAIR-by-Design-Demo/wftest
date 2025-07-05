@@ -33,7 +33,7 @@ hide:
 
 ![Header with Skills4EOSC funding information](./attachments/header.png)
 
-# Training Example
+# Training Examplee
 
 {!RELEASE_NOTES.md!}
 
